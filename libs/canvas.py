@@ -163,7 +163,7 @@ class Canvas(QWidget):
             return
 
         # Polygon copy moving.
-        if Qt.RightButton & ev.buttons():
+        if int(Qt.RightButton) & int(ev.buttons()):
             if self.selected_shape_copy and self.prev_point:
                 self.override_cursor(CURSOR_MOVE)
                 self.bounded_move_shape(self.selected_shape_copy, pos)
@@ -174,7 +174,7 @@ class Canvas(QWidget):
             return
 
         # Polygon/Vertex moving.
-        if Qt.LeftButton & ev.buttons():
+        if int(Qt.LeftButton) & int(ev.buttons()):
             if self.selected_vertex():
                 self.bounded_move_vertex(pos)
                 self.shapeMoved.emit()
